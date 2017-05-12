@@ -1,0 +1,42 @@
+#include<Servo.h>
+
+Servo L_SERVO;
+Servo R_SERVO;
+
+int L_Servo_Pin = 5;
+int R_Servo_Pin = 6;
+
+void forward()
+{
+  L_SERVO.write(0);
+  L_SERVO.write(180);
+  delay(1000);
+}
+
+void reverse()
+{
+  L_SERVO.write(180);
+  R_SERVO.write(0); 
+  delay(1000);
+}
+
+void servoStop()
+{
+  L_SERVO.write(90);
+  R_SERVO.write(90);
+  delay(1000);
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  L_SERVO.attach(L_Servo_Pin);
+  R_SERVO.attach(R_Servo_Pin);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  forward();
+  servoStop();
+  reverse();
+  servoStop();
+} 
